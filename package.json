@@ -14,7 +14,7 @@
     "@react-navigation/stack": "^5.9.0",
     "@use-expo/font": "^2.0.0",
     "axios": "^0.20.0",
-    "expo": "~38.0.8",
+    "expo": "^39.0.3",
     "expo-status-bar": "^1.0.2",
     "formik": "^2.1.5",
     "native-base": "^2.13.14",
