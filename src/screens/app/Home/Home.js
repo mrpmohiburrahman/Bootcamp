@@ -4,8 +4,8 @@ import Button from "../../../components/common/Button";
 import { AuthContext } from "../../../context/AuthContext";
 
 export default function Home() {
-  const {authContest} = useContext(AuthContext)
-  const {signOut} = AuthContext
+  const {authContext} = useContext(AuthContext)
+  const {signOut} = authContext
   return (
     <View>
       <Text>Home</Text>

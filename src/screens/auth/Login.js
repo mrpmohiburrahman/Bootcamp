@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, StyleSheet, Image } from "react-native";
 import Text from "../../components/common/Text";
 import { Colors, Images, Metrics } from "../../theme";
@@ -8,7 +8,10 @@ import * as yup from "yup";
 import TextInput from "../../components/common/Input";
 import Button from "../../components/common/Button";
 import { TouchableOpacity } from "react-native-gesture-handler";
-
+import { AuthContext } from "../../context/AuthContext";
+import API from '../../api'
+import { showMessage } from "react-native-flash-message";
+import Loading from "../../components/common/Loading";
 const validationSchema = yup.object().shape({
   email: yup
     .string()
@@ -20,14 +23,32 @@ const validationSchema = yup.object().shape({
 });
 
 export default function Login({ navigation }) {
+  const {authContext} = useContext(AuthContext)
+  const {signIn} = authContext
   return (
     <View style={cs.container}>
       <Image source={Images.landing} style={{ width: "100%" }} />
 
       <Formik
         initialValues={{ email: "", password: "" }}
-        onSubmit={(values, action) => {
-          console.log({ values });
+        onSubmit={async (values, action) => {
+          // console.log({ values });
+          action.setSubmitting(true)
+          const loginUrl='auth/login'
+          try{
+              let res=await API.post(loginUrl, values)
+              console.log('res',res)
+              action.setSubmitting(false)
+              signIn(res.data.token)
+          }
+          catch(err){
+            console.log('err ',err.response)
+            action.setSubmitting(false)
+            showMessage({
+              message:err.response.data.msg,
+              type:'danger'
+            })
+          }
         }}
         validationSchema={validationSchema}
       >
@@ -48,11 +69,16 @@ export default function Login({ navigation }) {
                 secureTextEntry={true}
               />
 
-              <Button
-                onPress={formikProps.handleSubmit}
-                style={{ margin: Metrics.doubleBase }}
-                title="Login"
-              />
+              {formikProps.isSubmitting?(
+                <Loading/>
+              ):(
+                  <Button
+                  onPress={formikProps.handleSubmit}
+                  style={{ margin: Metrics.doubleBase }}
+                  title="Login"
+                />
+              )}
+              
             </View>
           );
         }}

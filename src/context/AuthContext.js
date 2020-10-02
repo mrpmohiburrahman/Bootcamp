@@ -5,21 +5,21 @@ import AsyncStorage from '@react-native-community/async-storage'
 export const AuthContext = createContext()
 
 function reducer(state, action){
-    switch (action,type) {
-        case 'RESTORE_TOKEN':
+    switch (action.type) {
+        case "RESTORE_TOKEN":
             return{
                 ...state,
                 userToken:action.token,
                 isLoading:false,
             }
-        case 'SIGN_IN':
+        case "SIGN_IN":
             return{
                 ...state,
                 userToken:action.token,
                 isLoading:false,
                 isSignout:false,
             }
-        case 'SIGN_OUT':
+        case "SIGN_OUT":
             return{
                 ...state,
                 userToken:null,
@@ -42,7 +42,7 @@ export const AuthProvider = ({children}) =>{
     const authContext=useMemo(()=>({
         restoreToken:(token)=>{
             try {
-                dispatch({type:'RESTORE_TOKEN', token:token})
+                dispatch({type:"RESTORE_TOKEN", token:token})
             } catch (err) {
                 console.log(err)
             }
@@ -50,25 +50,25 @@ export const AuthProvider = ({children}) =>{
 
         signIn:async (token)=>{
             try {
-                dispatch({type:'SIGN_IN', token})
-                await AsyncStorage.setItem('userToken', token)
+                dispatch({type:"SIGN_IN", token})
+                await AsyncStorage.setItem("userToken", token)
             } catch (err) {
                 console.log(err)
             }
         },
         signUp:async (token)=>{
             try {
-                dispatch({type:'SIGN_IN', token})
-                await AsyncStorage.setItem('userToken', token)
+                dispatch({type:"SIGN_IN", token})
+                await AsyncStorage.setItem("userToken", token)
             } catch (err) {
                 console.log(err)
             }
         },
         signOut:async()=>{
-            dispatch({type:'SIGN_OUT'})
-            await AsyncStorage.removeItem('userToken')
+            dispatch({type:"SIGN_OUT"})
+            await AsyncStorage.removeItem("userToken")
         }
 
     }))
-    return <AuthProvider.Provider value={{authContext,state}}>{children}</AuthProvider.Provider>
+    return <AuthContext.Provider value={{authContext,state}}>{children}</AuthContext.Provider>
 }

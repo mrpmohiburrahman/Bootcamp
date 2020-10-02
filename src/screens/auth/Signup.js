@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { View, StyleSheet, Image } from "react-native";
 import Text from "../../components/common/Text";
 import { Colors, Images, Metrics } from "../../theme";
@@ -11,6 +11,8 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import API from "../../api";
 import Loading from '../../components/common/Loading'
 import { AuthContext } from "../../context/AuthContext";
+import { showMessage } from "react-native-flash-message";
+// import FlashMessage from "react-native-flash-message";
 
 const validationSchema = yup.object().shape({
   email: yup
