@@ -33,16 +33,23 @@ export default function Signup({ navigation }) {
       <Formik
         initialValues={{ email: "", password: "", bio: "", name: "" }}
         onSubmit={async (values, action) => {
-          console.log({ values });
           action.setSubmitting(true)
           const registerURL = "auth/register";
           try {
             let res = await API.post(registerURL, values);
             action.setSubmitting(false)
+            showMessage({
+              message:'Sign up successfull!',
+              type:'success'
+            })
             console.log("res ", res);
           } catch (err) {
             console.log("err ", err.response);
             action.setSubmitting(false)
+            showMessage({
+              message:err.response.data.msg,
+              type:'danger'
+            })
           }
         }}
         validationSchema={validationSchema}
