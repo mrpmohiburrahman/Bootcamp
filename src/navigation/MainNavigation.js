@@ -11,13 +11,14 @@ import AuthNav from "./AuthNavigation";
 import AppNav from "./AppNavigation";
 import { Platform } from "react-native";
 import FlashMessage from "react-native-flash-message";
+import { AuthContext } from "../context/AuthContext";
 
 const Stack = createStackNavigator();
 
 export default function MainNavigation() {
   const [userToken, setUserToken] = useState(null);
   const isLoading = false;
-
+  const {a} = useContext(AuthContext)
   return (
     <Root>
       <NavigationContainer>
