@@ -10,6 +10,7 @@ import Button from "../../components/common/Button";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import API from "../../api";
 import Loading from '../../components/common/Loading'
+import { AuthContext } from "../../context/AuthContext";
 
 const validationSchema = yup.object().shape({
   email: yup
@@ -28,6 +29,8 @@ const validationSchema = yup.object().shape({
 });
 
 export default function Signup({ navigation }) {
+  const {authContext} = useContext(AuthContext)
+  const { signUp } = authContext
   return (
     <View style={cs.container}>
       <Formik
@@ -37,12 +40,9 @@ export default function Signup({ navigation }) {
           const registerURL = "auth/register";
           try {
             let res = await API.post(registerURL, values);
-            action.setSubmitting(false)
-            showMessage({
-              message:'Sign up successfull!',
-              type:'success'
-            })
             console.log("res ", res);
+            action.setSubmitting(false)
+            signUp(res.data.token)
           } catch (err) {
             console.log("err ", err.response);
             action.setSubmitting(false)

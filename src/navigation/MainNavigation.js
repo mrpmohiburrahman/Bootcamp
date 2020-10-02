@@ -16,9 +16,12 @@ import { AuthContext } from "../context/AuthContext";
 const Stack = createStackNavigator();
 
 export default function MainNavigation() {
-  const [userToken, setUserToken] = useState(null);
-  const isLoading = false;
-  const {a} = useContext(AuthContext)
+  // const [userToken, setUserToken] = useState(null);
+  // const isLoading = false;
+  // const {a} = useContext(AuthContext)
+
+  const {state, authContext} = useContext(AuthContext)
+  const {isLoading,userToken} = state
   return (
     <Root>
       <NavigationContainer>
@@ -31,9 +34,7 @@ export default function MainNavigation() {
           />
 
           <Stack.Navigator>
-            {isLoading ? ( // checking user token
-              <Stack.Screen name="Splash" component={SplashScreen} />
-            ) : userToken === null ? ( // there is no user token, logged out user
+            { userToken === null ? ( // there is no user token, logged out user
               <Stack.Screen name="Auth" component={AuthNav} options={{ headerShown: false }} />
             ) : (
               // the user is already logged in
