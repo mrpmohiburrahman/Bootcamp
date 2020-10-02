@@ -9,6 +9,7 @@ import TextInput from "../../components/common/Input";
 import Button from "../../components/common/Button";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import API from "../../api";
+import Loading from '../../components/common/Loading'
 
 const validationSchema = yup.object().shape({
   email: yup
@@ -33,18 +34,16 @@ export default function Signup({ navigation }) {
         initialValues={{ email: "", password: "", bio: "", name: "" }}
         onSubmit={async (values, action) => {
           console.log({ values });
+          action.setSubmitting(true)
           const registerURL = "auth/register";
-          API.post(registerURL, values)
-            .then((res) => console.log(res))
-            .catch((err) => {
-              console.log(err);
-            });
-          // try {
-          //   let res = await API.post(registerURL, values);
-          //   console.log("res ", res);
-          // } catch (err) {
-          //   console.log("err ", err.response);
-          // }
+          try {
+            let res = await API.post(registerURL, values);
+            action.setSubmitting(false)
+            console.log("res ", res);
+          } catch (err) {
+            console.log("err ", err.response);
+            action.setSubmitting(false)
+          }
         }}
         validationSchema={validationSchema}
       >
@@ -78,11 +77,14 @@ export default function Signup({ navigation }) {
                 formikKey={"bio"}
               />
 
-              <Button
+              {formikProps.isSubmitting?(
+                <Loading/>
+              ):(<Button
                 onPress={formikProps.handleSubmit}
                 style={{ margin: Metrics.doubleBase }}
                 title="Sign up"
-              />
+              />)}
+              
             </View>
           );
         }}
