@@ -11,6 +11,7 @@ const colors = {
   midGrey: "#888888",
   grey: "#f2f2f2",
   green: "#6FCF97",
+  orange:'#F2994A'
 };
 
 export default colors;
