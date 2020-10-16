@@ -1,4 +1,5 @@
-import React from 'react'
+import AsyncStorage from '@react-native-community/async-storage';
+import React, { useEffect } from 'react'
 import {View, Image} from 'react-native'
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { color } from 'react-native-reanimated';
@@ -33,7 +34,13 @@ const slides = [
     }
   ];
 
-export default function AppIntro(){
+export default function AppIntro({onDone}){
+    useEffect(()=>{
+        setFlag()
+    },[])
+    const setFlag=async ()=>{
+        await AsyncStorage.setItem("visited","true")
+    }
     const renderSlides=({item, index}) =>{
         return(
             <View>
@@ -53,7 +60,7 @@ export default function AppIntro(){
                         {item.description}
                     </Text>
                 </View>
-                {index===slides.length-1 && <Button style={{width:200,alignSelf:"center", marginTop:Metrics.doubleBase}} title="Explore now"/>}
+                {index===slides.length-1 && <Button style={{width:200,alignSelf:"center", marginTop:Metrics.doubleBase}} title="Explore now" onPress={onDone}/>}
             </View>
         )
     }
