@@ -10,7 +10,26 @@ import Button from '../../../components/common/Button';
 
 import TagInput from "../../../components/Taginput";
 import {Switch, Icon} from 'native-base'
+import { TouchableOpacity } from "react-native-gesture-handler";
 
+const colors=[
+  {
+    name:"orange",
+    code:"#F2994A",
+  },
+  {
+    name:"green",
+    code:"#27AE60",
+  },
+  {
+    name:"purple",
+    code:"#9B51E0",
+  },
+  {
+    name:"blue",
+    code:"#2D9CDB",
+  }
+]
 export default function Create() {
   return (
     <ScrollView style={commonStyles.container}>
@@ -117,7 +136,44 @@ export default function Create() {
               value={formikProps.values["jobGuarentee"]}
             />
           </View>
-          <Button style={{marginTop:Metrics.base}} title='Create'/>
+
+          <View style={{marginTop:Metrics.doubleBase}}>
+            <Text bold>Select your cover color</Text>
+            <View style={{flexDirection:"row", paddingTop:20}}>
+              {colors.map((item)=>{
+                return(
+                  <TouchableOpacity
+                    key={item.name}
+                    onPress={()=>{
+                      formikProps.setFieldValue("coverColor",item)
+                    }}
+                    style={{
+                      height:Metrics.doubleBase,
+                      width:Metrics.doubleBase,
+                      backgroundColor:item.code,
+                      marginRight:Metrics.base,
+                      borderRadius:Metrics.base,
+                      alignItems:'center',
+                      justifyContent:'center'
+                    }}
+                  >
+                  {item.name===formikProps.values["coverColor"].name && (
+                    <Icon
+                      name="ios-checkmark"
+                      style={{color:Colors.white,fontSize:30}}
+                    />
+                  )}
+
+                  </TouchableOpacity>
+                )
+              })}
+
+            </View>
+
+          </View>
+
+
+          <Button onPress={formikProps.handleSubmit} style={{marginTop:Metrics.base}} title='Create'/>
           </View>
         )}
 

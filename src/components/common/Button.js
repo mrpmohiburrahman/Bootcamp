@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Metrics, Colors, Fonts } from "../../theme/";
 import { scale } from "react-native-size-matters";
 import Text from "./Text";
@@ -20,7 +20,7 @@ export default function Button({
   fullWidth = false,
 }) {
   return (
-    <TouchableWithoutFeedback onPress={onPress}>
+    <TouchableOpacity onPress={onPress}>
       <View
         style={[
           styles.container,
@@ -44,7 +44,7 @@ export default function Button({
           {title}
         </Text>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   );
 }
 
