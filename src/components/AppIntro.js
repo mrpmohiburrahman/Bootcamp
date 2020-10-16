@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import React, { useEffect } from 'react'
-import {View, Image} from 'react-native'
+import {View, Image, Modal} from 'react-native'
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { color } from 'react-native-reanimated';
 import { scale } from 'react-native-size-matters';
@@ -34,7 +34,7 @@ const slides = [
     }
   ];
 
-export default function AppIntro({onDone}){
+export default function AppIntro({visible,toggleModal}){
     useEffect(()=>{
         setFlag()
     },[])
@@ -60,15 +60,17 @@ export default function AppIntro({onDone}){
                         {item.description}
                     </Text>
                 </View>
-                {index===slides.length-1 && <Button style={{width:200,alignSelf:"center", marginTop:Metrics.doubleBase}} title="Explore now" onPress={onDone}/>}
+                {index===slides.length-1 && <Button style={{width:200,alignSelf:"center", marginTop:Metrics.doubleBase}} title="Explore now" onPress={toggleModal}/>}
             </View>
         )
     }
     return(
-        <AppIntroSlider
+        <Modal visible={visible}>
+            <AppIntroSlider
             activeDotStyle={{backgroundColor:Colors.primary}}
             data={slides}
             renderItem={renderSlides}
-        />
+            />
+        </Modal>
     )
 }

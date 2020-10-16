@@ -20,16 +20,12 @@ export default function Home() {
     if(!isVisited){
       setShowOnboarding(true)
     }
-    await AsyncStorage.removeItem("visited")
+    
   }
-  if(showOnboarding){
-    return (
-      <View style={commonStyles.container}>
-          <AppIntro onDone={()=>{setShowOnboarding(false)}}/>
-      </View>
-    )
+  const toggleModal=()=>{
+    setShowOnboarding(!showOnboarding)
   }
-
+  
   return (
     <View>
       <Text>Home</Text>
@@ -39,6 +35,7 @@ export default function Home() {
         }}
         title='LOG OUT'
       />
+      <AppIntro visible={showOnboarding} toggleModal={toggleModal}/>
     </View>
   );
 }
