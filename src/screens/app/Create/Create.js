@@ -7,10 +7,13 @@ import { Formik } from "formik";
 import Input from '../../../components/common/Input';
 import Text from '../../../components/common/Text';
 import Button from '../../../components/common/Button';
+import Loading from '../../../components/common/Loading';
 
 import TagInput from "../../../components/Taginput";
 import {Switch, Icon} from 'native-base'
 import { TouchableOpacity } from "react-native-gesture-handler";
+
+import API from '../../../api'
 
 const colors=[
   {
@@ -53,6 +56,10 @@ export default function Create() {
           }}
           onSubmit={(values,action)=>{
             console.log('values',values)
+            action.setSubmitting(true)
+            API.post('bootcamps',values)
+            .then((res)=>{console.log('res',res);action.setSubmitting(false)})
+            .catch((err)=>{console.log(err);action.setSubmitting(false)})
           }}
         >
         {(formikProps)=>(
@@ -172,8 +179,10 @@ export default function Create() {
 
           </View>
 
-
-          <Button onPress={formikProps.handleSubmit} style={{marginTop:Metrics.base}} title='Create'/>
+          {formikProps.isSubmitting ? (<Loading/>):(
+            <Button onPress={formikProps.handleSubmit} style={{marginTop:Metrics.base}} title='Create'/>
+          )}
+          
           </View>
         )}
 
