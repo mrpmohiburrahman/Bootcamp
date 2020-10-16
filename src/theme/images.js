@@ -8,6 +8,9 @@ const Images = {
   add: require("../../assets/icons/add_circle.png"),
   landing: require("../../assets/images/landing.png"),
   back: require("../../assets/icons/arrow_back.png"),
+  banner1: require("../../assets/images/banner1.png"),
+  banner2: require("../../assets/images/banner2.png"),
+  banner3: require("../../assets/images/banner3.png"),
 };
 
 export default Images;
