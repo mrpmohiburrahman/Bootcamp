@@ -9,6 +9,7 @@ import Text from '../../../components/common/Text';
 import Button from '../../../components/common/Button';
 
 import TagInput from "../../../components/Taginput";
+import {Switch, Icon} from 'native-base'
 
 export default function Create() {
   return (
@@ -74,7 +75,49 @@ export default function Create() {
               formikProps={formikProps}
               placeholder='Bootcamp website'
             />
-          <Button title='Create'/>
+          <View style={{
+            flexDirection:'row',
+            justifyContent:'space-between',
+            alignItems:'center',
+            marginVertical:Metrics.base
+          }}>
+            <View style={{flex:1, marginRight:10}}>
+              <Text style={{marginBottom:5}} bold>
+                Scholarship Available
+              </Text>
+              <Text caption>
+                Do you provide scholarship to the students?
+              </Text>
+            </View>
+            <Switch
+              onValueChange={(value)=>{
+                formikProps.setFieldValue("isScholarship", value)
+              }}
+              value={formikProps.values["isScholarship"]}
+            />
+          </View>
+          <View style={{
+            flexDirection:'row',
+            justifyContent:'space-between',
+            alignItems:'center',
+            marginVertical:Metrics.base
+          }}>
+            <View style={{flex:1, marginRight:10}}>
+              <Text style={{marginBottom:5}} bold>
+                Job Ready
+              </Text>
+              <Text caption>
+                will students become job ready after completing?
+              </Text>
+            </View>
+            <Switch
+              onValueChange={(value)=>{
+                formikProps.setFieldValue("jobGuarentee", value)
+              }}
+              value={formikProps.values["jobGuarentee"]}
+            />
+          </View>
+          <Button style={{marginTop:Metrics.base}} title='Create'/>
           </View>
         )}
 
