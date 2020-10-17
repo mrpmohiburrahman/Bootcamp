@@ -11,6 +11,8 @@ const Images = {
   banner1: require("../../assets/images/banner1.png"),
   banner2: require("../../assets/images/banner2.png"),
   banner3: require("../../assets/images/banner3.png"),
+  emptyBootcamps: require("../../assets/images/no_bootcamps.png"),
+  delete: require("../../assets/images/delete1.png"),
 };
 
 export default Images;

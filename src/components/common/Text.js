@@ -40,6 +40,7 @@ export default function Text(props) {
     alignRight,
     lh,
     style,
+    numberOfLines
   } = props;
 
   return (
@@ -73,6 +74,7 @@ export default function Text(props) {
         lh && { lineHeight: lh },
         style,
       ]}
+      numberOfLines={numberOfLines}
     >
       {children}
     </RNText>

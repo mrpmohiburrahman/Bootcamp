@@ -4,7 +4,7 @@ import {Colors} from '../../theme'
 
 export default function Loading({size='large'}){
     return (
-        <View>
+        <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
             {/* <ActivityIndicator */}
             <ActivityIndicator color={Colors.primary} />
         </View>
