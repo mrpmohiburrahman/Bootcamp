@@ -12,44 +12,7 @@ import { Images } from "../theme";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const plusStack = createStackNavigator();
-ProfileScreens
-function ProfileScreens() {
-  return (
-    <plusStack.Navigator>
-      <plusStack.Screen name="Profile" component={Profile} />
-      <plusStack.Screen name="ProfileEdit" component={ProfileEdit} />
-    </plusStack.Navigator>
-  );
-}
-function stackScreens() {
-  return (
-    <plusStack.Navigator>
-      <plusStack.Screen name="stackScreen1" component={stackScreen1} />
-      <plusStack.Screen name="stackScreen2" component={stackScreen2} />
-    </plusStack.Navigator>
-  );
-}
-function stackScreen2() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center',  alignItems: 'center' }}>
-      <Text>stackScreen2</Text>
-    </View>
-  );
-}
-function stackScreen1({ navigation }) {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>plus screen</Text>
-      <Button
-        title="Go to stackScreen2"
-        onPress={() => navigation.navigate('stackScreen2')}
-      />
-    </View>
-  );
-}
-
-export default function AuthNavigation() {
+function HomeTabs() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -60,7 +23,7 @@ export default function AuthNavigation() {
             iconName = focused ? Images.homeActive : Images.homeInactive;
           } else if (route.name === "Bookmark") {
             iconName = focused ? Images.heartActive : Images.heartInactive;
-          } else if (route.name === "ProfileScreens") {
+          } else if (route.name === "Profile") {
             iconName = focused ? Images.profileActive : Images.profileInactive;
           } else if (route.name === "Create") {
             iconName = Images.add;
@@ -79,10 +42,18 @@ export default function AuthNavigation() {
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Bookmark" component={Bookmark} />
-      <Tab.Screen name="ProfileScreens" component={ProfileScreens} />
+      <Tab.Screen name="Profile" component={Profile}/>
       <Tab.Screen name="Create" component={Create} />
-      <Tab.Screen name="stackScreens" component= {stackScreens} />
+      {/* <Tab.Screen name="stackScreens" component= {stackScreens} /> */}
     </Tab.Navigator>
-    
+  );
+}
+
+export default function AuthNavigation() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeTabs} />
+      <Stack.Screen name="ProfileEdit" component={ProfileEdit} />
+    </Stack.Navigator>
   );
 }
