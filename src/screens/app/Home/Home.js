@@ -94,7 +94,7 @@ export default function Home() {
               <View style={{flexDirection:"row", alignItems:'center'}}>
                 <Image source={Images.calender}/>
                 <Text style={{marginLeft:6}} white>
-                  4 months
+                {card.duration} months
                 </Text>
               </View>
 

@@ -86,7 +86,7 @@ export default function Create() {
           <Input
               formikKey='duration'
               formikProps={formikProps}
-              placeholder='Duration'
+              placeholder='Duration (in months)'
             />
           <Input
               formikKey='price'
