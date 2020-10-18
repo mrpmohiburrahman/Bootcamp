@@ -13,6 +13,9 @@ const Images = {
   banner3: require("../../assets/images/banner3.png"),
   emptyBootcamps: require("../../assets/images/no_bootcamps.png"),
   delete: require("../../assets/images/delete1.png"),
+  location:require("../../assets/icons/location_on.png"),
+  calender:require("../../assets/icons/calendar.png"),
+  teacher:require("../../assets/icons/teacher.png"),
 };
 
 export default Images;
