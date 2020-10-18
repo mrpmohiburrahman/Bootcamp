@@ -6,6 +6,7 @@ import Home from "../screens/app/Home/Home";
 import Bookmark from "../screens/app/Bookmark/Bookmark";
 import Profile from "../screens/app/Profile/Profile";
 import ProfileEdit from "../screens/app/Profile/ProfileEdit"
+import HomeDetails from "../screens/app/Home/HomeDetails"
 import Create from "../screens/app/Create/Create";
 import { Images } from "../theme";
 
@@ -54,6 +55,7 @@ export default function AuthNavigation() {
     <Stack.Navigator>
       <Stack.Screen name="Home" component={HomeTabs} />
       <Stack.Screen name="ProfileEdit" component={ProfileEdit} />
+      <Stack.Screen name="HomeDetails" component={HomeDetails} />
     </Stack.Navigator>
   );
 }

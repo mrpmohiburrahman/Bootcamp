@@ -1,10 +1,11 @@
-import React, {useState,useEffect} from "react";
+import React from "react";
 import { View, Text } from "react-native";
 
+export default function HomeDetails() {
 
-export default function ProfileEdit() {
   return (
     <View style={{ flex: 1, justifyContent: 'center',  alignItems: 'center' }}>
-      <Text>Edit Profile</Text>
-    </View>);
+      <Text>Home Details</Text>
+    </View>
+  );
 }
