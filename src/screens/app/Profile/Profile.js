@@ -6,7 +6,8 @@ import API from '../../../api'
 import commonStyles from '../../../theme/common-styles'
 import Loading from '../../../components/common/Loading'
 import Button from "../../../components/common/Button";
-export default function Profile() {
+import ProfileEdit from "../Profile/ProfileEdit"
+export default function Profile({ navigation }) {
   const [loading, setLoading]=useState(true)
   const [bootcampsLoading, setBootcampsLoading] = useState(true)
   const [userData, setUserData]=useState(null)
@@ -122,7 +123,7 @@ export default function Profile() {
             width:165,
             height:32,
             marginTop:20
-            }} title='Edit Profile'/>
+            }} title='Edit Profile' onPress={() => navigation.navigate('ProfileEdit')}/>
         </View>
         
       </View>

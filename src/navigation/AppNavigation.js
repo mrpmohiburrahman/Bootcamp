@@ -1,15 +1,53 @@
 import React from "react";
-import { Image } from "react-native";
+import { Image, View, Text, Button } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../screens/app/Home/Home";
 import Bookmark from "../screens/app/Bookmark/Bookmark";
 import Profile from "../screens/app/Profile/Profile";
+import ProfileEdit from "../screens/app/Profile/ProfileEdit"
 import Create from "../screens/app/Create/Create";
 import { Images } from "../theme";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
+const plusStack = createStackNavigator();
+ProfileScreens
+function ProfileScreens() {
+  return (
+    <plusStack.Navigator>
+      <plusStack.Screen name="Profile" component={Profile} />
+      <plusStack.Screen name="ProfileEdit" component={ProfileEdit} />
+    </plusStack.Navigator>
+  );
+}
+function stackScreens() {
+  return (
+    <plusStack.Navigator>
+      <plusStack.Screen name="stackScreen1" component={stackScreen1} />
+      <plusStack.Screen name="stackScreen2" component={stackScreen2} />
+    </plusStack.Navigator>
+  );
+}
+function stackScreen2() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center',  alignItems: 'center' }}>
+      <Text>stackScreen2</Text>
+    </View>
+  );
+}
+function stackScreen1({ navigation }) {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>plus screen</Text>
+      <Button
+        title="Go to stackScreen2"
+        onPress={() => navigation.navigate('stackScreen2')}
+      />
+    </View>
+  );
+}
 
 export default function AuthNavigation() {
   return (
@@ -22,7 +60,7 @@ export default function AuthNavigation() {
             iconName = focused ? Images.homeActive : Images.homeInactive;
           } else if (route.name === "Bookmark") {
             iconName = focused ? Images.heartActive : Images.heartInactive;
-          } else if (route.name === "Profile") {
+          } else if (route.name === "ProfileScreens") {
             iconName = focused ? Images.profileActive : Images.profileInactive;
           } else if (route.name === "Create") {
             iconName = Images.add;
@@ -41,8 +79,9 @@ export default function AuthNavigation() {
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Bookmark" component={Bookmark} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="ProfileScreens" component={ProfileScreens} />
       <Tab.Screen name="Create" component={Create} />
+      <Tab.Screen name="stackScreens" component= {stackScreens} />
     </Tab.Navigator>
     
   );
