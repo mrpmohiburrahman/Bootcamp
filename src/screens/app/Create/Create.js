@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, } from "react-native";
+import { View, ScrollView,Alert } from "react-native";
 import commonStyles from '../../../theme/common-styles'
 import * as yup from 'yup'
 import { Metrics,Colors } from "../../../theme";
@@ -12,6 +12,8 @@ import Loading from '../../../components/common/Loading';
 import TagInput from "../../../components/Taginput";
 import {Switch, Icon} from 'native-base'
 import { TouchableOpacity } from "react-native-gesture-handler";
+import FlashMessage from 'react-native-flash-message'
+import {showMessage,hideMessage} from 'react-native-flash-message'
 
 import API from '../../../api'
 
@@ -33,7 +35,7 @@ const colors=[
     code:"#2D9CDB",
   }
 ]
-export default function Create() {
+export default function Create({ navigation }) {
   return (
     <ScrollView style={commonStyles.container}>
       <View style={{margin:Metrics.base}}>
@@ -60,7 +62,15 @@ export default function Create() {
             console.log('values',values)
             action.setSubmitting(true)
             API.post('bootcamps',values)
-            .then((res)=>{console.log('res',res);action.setSubmitting(false)})
+            .then((res)=>{
+              console.log('res',res);
+              action.setSubmitting(false)
+              showMessage({
+                message:'Successfully created',
+                type: 'success',
+              })
+              navigation.navigate('Profile')
+              })
             .catch((err)=>{console.log(err);action.setSubmitting(false)})
           }}
         >
@@ -200,6 +210,7 @@ export default function Create() {
 
         </Formik>
       </View>
+      <FlashMessage position='top'/>
     </ScrollView>
     
   );

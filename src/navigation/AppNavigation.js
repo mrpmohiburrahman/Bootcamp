@@ -44,5 +44,6 @@ export default function AuthNavigation() {
       <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen name="Create" component={Create} />
     </Tab.Navigator>
+    
   );
 }
