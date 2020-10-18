@@ -82,6 +82,16 @@ export default function Create() {
             <TagInput formikProps={formikProps} formikKey="careers"/>
           </View>
           <Input
+              formikKey='duration'
+              formikProps={formikProps}
+              placeholder='Duration'
+            />
+          <Input
+              formikKey='price'
+              formikProps={formikProps}
+              placeholder='Price'
+            />
+          <Input
               formikKey='address'
               formikProps={formikProps}
               placeholder='Bootcamp address'
