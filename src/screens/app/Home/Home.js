@@ -112,9 +112,52 @@ export default function Home() {
           </View>
           
           <View style={{
+            justifyContent:'space-between',
+            flexDirection:'row',
+            marginRight:Metrics.base
+          }}>
+            {card.price && (
+                <View 
+                    style={{
+                      // alignSelf:'flex-end',
+                      // margin:Metrics.base,
+                      marginTop:Metrics.doubleBase,
+                      // borderColor:'white',
+                      
+                      // borderWidth:1,
+                      // borderRadius:30,
+                      padding: 6,
+                      paddingHorizontal:10,
+                      }}>
+                      <Text caption white >
+                        TK {card.price}
+                      </Text>
+                  </View>
+              )}
+              {!card.price && (
+                <View 
+                    style={{
+                      // alignSelf:'flex-end',
+                      // margin:Metrics.base,
+                      marginTop:Metrics.doubleBase,
+                      // borderColor:'white',
+                      
+                      // borderWidth:1,
+                      // borderRadius:30,
+                      padding: 6,
+                      paddingHorizontal:10,
+                      }}>
+                      <Text caption white>
+                        TK 0
+                      </Text>
+                  </View>
+              )}
+
+              <View style={{
             alignSelf:'flex-end',
             flexDirection:'row',
             marginRight:Metrics.base}}>
+                                       
               {card.isScholarship && (
                 <View 
                     style={{
@@ -149,7 +192,11 @@ export default function Home() {
                 </View>
               )}              
           </View>
-        </View>
+       
+
+          </View>
+
+           </View>
 
         <View style={{margin:Metrics.base}}>
             <Text title bold>
