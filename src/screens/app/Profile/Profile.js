@@ -5,6 +5,7 @@ import {Colors, Images, Metrics} from '../../../theme'
 import API from '../../../api'
 import commonStyles from '../../../theme/common-styles'
 import Loading from '../../../components/common/Loading'
+import Button from "../../../components/common/Button";
 export default function Profile() {
   const [loading, setLoading]=useState(true)
   const [bootcampsLoading, setBootcampsLoading] = useState(true)
@@ -92,21 +93,38 @@ export default function Profile() {
   }
   return (
     <View style={commonStyles.container}>
-      <View style={{backgroundColor:Colors.green,borderBottomRightRadius:80,paddingVertical:Metrics.doubleBase,paddingHorizontal:Metrics.base}}>
+      <View style={{
+        backgroundColor:Colors.green,
+        borderBottomRightRadius:80,
+        paddingVertical:Metrics.doubleBase,
+        paddingHorizontal:Metrics.base,
+        justifyContent:'space-between',
+        flexDirection:'column',
+        
+        }}>
+        <View>
+          <Text>My Profile</Text>
+          <View style={{marginTop:Metrics.base}}>
+            <Text white>{userData.name}</Text>
+            <Text white>{userData.email}</Text>
 
-
-        <Text>Profile</Text>
-        <View style={{marginTop:Metrics.base}}>
-          <Text white>{userData.name}</Text>
-          <Text white>{userData.email}</Text>
-
-          <View style={{marginTop:Metrics.halfBase}}>
-            <Text white>
-            {userData.bio}
-            </Text>
-
+            <View style={{marginTop:Metrics.halfBase}}>
+              <Text white>
+              {userData.bio}
+              </Text>
+            </View>
           </View>
         </View>
+        <View style={{alignSelf:''}}>
+          <Button  style={{
+            backgroundColor:Colors.green,
+            borderColor:'#18B18D',
+            width:165,
+            height:32,
+            marginTop:20
+            }} title='Edit Profile'/>
+        </View>
+        
       </View>
       <View>
         {bootcampsLoading?<Loading/>:renderBootcamps()}
