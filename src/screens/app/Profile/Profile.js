@@ -130,7 +130,7 @@ export default function Profile({ navigation }) {
             width:165,
             height:32,
             marginTop:20
-            }} title='Edit Profile' onPress={() => navigation.navigate('ProfileEdit')}/>
+            }} title='Edit Profile' onPress={() => navigation.navigate('ProfileEdit',{email:userData.email,bio:userData.bio,name:userData.name})}/>
         </View>
         
       </View>
