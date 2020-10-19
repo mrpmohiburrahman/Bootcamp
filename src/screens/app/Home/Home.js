@@ -68,7 +68,7 @@ export default function Home({ navigation }) {
   
   const renderCard=(card, index)=>{
     return(
-      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('HomeDetails')}>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('HomeDetails',{card:card})}>
         <View style={styles.card}>
           <View 
             style={{
