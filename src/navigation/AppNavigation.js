@@ -55,7 +55,10 @@ export default function AuthNavigation() {
     <Stack.Navigator>
       <Stack.Screen name="Home" component={HomeTabs} />
       <Stack.Screen name="ProfileEdit" component={ProfileEdit} />
-      <Stack.Screen name="HomeDetails" component={HomeDetails} />
+      <Stack.Screen name="HomeDetails" component={HomeDetails}
+        options={{
+          headerShown:false
+        }} />
     </Stack.Navigator>
   );
 }
