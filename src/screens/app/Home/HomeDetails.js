@@ -1,11 +1,16 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text,ScrollView } from "react-native";
+import commonStyles from '../../../theme/common-styles'
+import { Metrics,Colors } from "../../../theme";
 
 export default function HomeDetails() {
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center',  alignItems: 'center' }}>
-      <Text>Home Details</Text>
-    </View>
+    <ScrollView style={commonStyles.container}>
+      <View style={{margin:Metrics.base}}>
+        <Text title bold>HomeDetails</Text>
+      </View>
+    </ScrollView>
+    
   );
 }
