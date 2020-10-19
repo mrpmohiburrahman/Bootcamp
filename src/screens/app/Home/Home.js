@@ -271,17 +271,18 @@ export default function Home({ navigation }) {
   }
   const onSwiped=(direction,index,item)=>{
     console.log(direction,index,item)
-    if(direction==='right'){
-      toggleModalPopupSuccess()
-    }else if (direction==='left'){
-      toggleModalPopupFailure()
-    }
-    // API.post("bootcampLogs",{
-    //   bootcamp:item._id,
-    //   status:direction==='left'?'reject':'saved',
-    // }).then((res)=>{
-    //   console.log('res',res)
-    // })
+    
+    API.post("bootcampLogs",{
+      bootcamp:item._id,
+      status:direction==='left'?'reject':'saved',
+    }).then((res)=>{
+      console.log('res',res)
+      if(direction==='right'){
+        toggleModalPopupSuccess()
+      }else if (direction==='left'){
+        toggleModalPopupFailure()
+      }
+    })
   }
   if(loading){
     return <Loading/>
