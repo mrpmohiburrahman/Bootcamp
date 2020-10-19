@@ -7,6 +7,9 @@ import commonStyles from '../../../theme/common-styles'
 import Loading from '../../../components/common/Loading'
 import Button from "../../../components/common/Button";
 import ProfileEdit from "../Profile/ProfileEdit"
+import FlashMessage from 'react-native-flash-message'
+import {showMessage,hideMessage} from 'react-native-flash-message'
+
 export default function Profile({ navigation }) {
   const [loading, setLoading]=useState(true)
   const [bootcampsLoading, setBootcampsLoading] = useState(true)
@@ -55,6 +58,10 @@ export default function Profile({ navigation }) {
                 (value)=>value._id!==item._id
               )
               setBootcampsData(newList)
+              showMessage({
+                message:'Deleted Bootcamp',
+                type: "danger" ,
+              })
             }
           })
         }} style={{alignSelf:'flex-end', marginTop:15}}>
