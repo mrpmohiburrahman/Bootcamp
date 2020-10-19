@@ -66,16 +66,26 @@ export default function Home({ navigation }) {
   const [showOnboarding,setShowOnboarding]=useState(false)
   const [list, setList] = useState([])
   const [loading, setLoading] = useState(true)
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisibleSuccess, setModalVisibleSuccess] = useState(false);
+  const [modalVisibleFailure, setModalVisibleFailure] = useState(false);
   
-  const toggleModalPopup = () => {
-    setModalVisible(true);
+  const toggleModalPopupSuccess = () => {
+    setModalVisibleSuccess(true);
     setTimeout(() => {
-      setModalVisible(false);
+      setModalVisibleSuccess(false);
       console.log("time out!!!!")
       }, 1000);
     
   };
+  const toggleModalPopupFailure = () => {
+    setModalVisibleFailure(true);
+    setTimeout(() => {
+      setModalVisibleFailure(false);
+      console.log("time out!!!!")
+      }, 1000);
+    
+  };
+  
   
   useEffect(()=>{
     fetchBootcamps()
@@ -262,7 +272,9 @@ export default function Home({ navigation }) {
   const onSwiped=(direction,index,item)=>{
     console.log(direction,index,item)
     if(direction==='right'){
-      toggleModalPopup()
+      toggleModalPopupSuccess()
+    }else if (direction==='left'){
+      toggleModalPopupFailure()
     }
     // API.post("bootcampLogs",{
     //   bootcamp:item._id,
@@ -281,7 +293,7 @@ export default function Home({ navigation }) {
         <Modal
           animationType="slide"
           transparent={true}
-          visible={modalVisible}
+          visible={modalVisibleSuccess}
           onRequestClose={() => {
             Alert.alert("Modal has been closed.");
           }}
@@ -294,7 +306,26 @@ export default function Home({ navigation }) {
             </View>
           </View>
         </Modal>
-    </View>
+      </View>
+
+      <View >
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisibleFailure}
+          onRequestClose={() => {
+            Alert.alert("Modal has been closed.");
+          }}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <View style={{backgroundColor:'#EB5757',height:200,width:200,borderRadius:6,alignItems:'center',justifyContent:'center'}}>
+                <Image source={Images.cross}/>
+              </View>
+            </View>
+          </View>
+        </Modal>
+      </View>
   
       <View style={{marginTop: Metrics.doubleBase}}>
         <Text centered display bold primaryColor>

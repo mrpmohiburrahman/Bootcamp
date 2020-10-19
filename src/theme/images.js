@@ -21,6 +21,7 @@ const Images = {
   messageBlue:require("../../assets/icons/messageBlue.png"),
   backWhite:require("../../assets/icons/backWhite.png"),
   love:require("../../assets/icons/love.png"),
+  cross:require("../../assets/icons/cross.png"),
 };
 
 export default Images;
