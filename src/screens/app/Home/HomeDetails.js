@@ -9,17 +9,18 @@ export default function HomeDetails({ route, navigation }) {
   const {card}=route.params
   return (
     <ScrollView style={commonStyles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-        <View>
-          <Image source={Images.back}/>
-        </View>
-      </TouchableOpacity>
-
       <View 
         style={{
-          paddingTop:10, //60
+          padding:20, //60
           backgroundColor:card.coverColor.code,
-          paddingBottom:Metrics.base}}>
+          paddingBottom:Metrics.base,
+          }}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <View>
+            <Image source={Images.backWhite}/>
+          </View>
+        </TouchableOpacity>
+
         <View>
           <Text centered display bold white>
             {card.title}
@@ -172,6 +173,33 @@ export default function HomeDetails({ route, navigation }) {
             <Image source={Images.messageBlue} style={{marginRight:10}}/>
             <Text>{card.email}</Text>
           </View>
+
+      </View>
+      <View style={{margin:Metrics.base}}>
+        <View>
+          <Text title bold>Address</Text>
+        </View>
+        <View style={{marginTop:Metrics.halfBase}}>
+          <Text>{card.address}</Text>
+        </View>
+
+      </View>
+      <View style={{margin:Metrics.base}}>
+        <View>
+          <Text title bold>Careers</Text>
+        </View>
+        <View>
+        {card.careers.map((careers, index)=>{
+            console.log("carrers ", careers)
+            return(
+                <View key={index}>
+                    <Text style={{fontSize:14,lineHeight:21}}>
+                        {`${careers}`}
+                    </Text>
+                </View>
+            )
+        })}
+        </View>
 
       </View>
     </ScrollView>
