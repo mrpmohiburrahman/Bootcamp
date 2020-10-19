@@ -20,6 +20,7 @@ const Images = {
   phoneBlue:require("../../assets/icons/phoneBlue.png"),
   messageBlue:require("../../assets/icons/messageBlue.png"),
   backWhite:require("../../assets/icons/backWhite.png"),
+  love:require("../../assets/icons/love.png"),
 };
 
 export default Images;
