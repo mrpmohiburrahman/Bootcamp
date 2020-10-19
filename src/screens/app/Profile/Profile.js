@@ -111,7 +111,7 @@ export default function Profile({ navigation }) {
         
         }}>
         <View>
-          <Text>My Profile</Text>
+          <Text title bold white>My Profile</Text>
           <View style={{marginTop:Metrics.base}}>
             <Text white>{userData.name}</Text>
             <Text white>{userData.email}</Text>
