@@ -14,9 +14,165 @@ export default function HomeDetails({ route, navigation }) {
           <Image source={Images.back}/>
         </View>
       </TouchableOpacity>
-      
+
+      <View 
+        style={{
+          paddingTop:10, //60
+          backgroundColor:card.coverColor.code,
+          paddingBottom:Metrics.base}}>
+        <View>
+          <Text centered display bold white>
+            {card.title}
+          </Text>
+
+          <View style={{flexDirection:'row', marginTop:Metrics.base, alignSelf:'center'}}>
+            <View style={{flexDirection:"row", alignItems:'center'}}>
+              <Image source={Images.calender}/>
+              <Text style={{marginLeft:6}} white>
+              {card.duration} months
+              </Text>
+            </View>
+
+            <View style={{
+                flexDirection:'row',
+                alignItems:'center',
+                marginLeft:Metrics.base}}
+                >
+              <Image source={Images.teacher}/>
+              <Text style={{marginLeft:6}} white>
+                {card.user.name}
+              </Text>
+            </View>
+          </View>
+        </View>
+        
+        <View style={{
+          justifyContent:'space-between',
+          flexDirection:'row',
+          marginRight:Metrics.base
+        }}>
+          {card.price && (
+              <View 
+                  style={{
+                    // alignSelf:'flex-end',
+                    // margin:Metrics.base,
+                    marginTop:Metrics.doubleBase,
+                    // borderColor:'white',
+                    
+                    // borderWidth:1,
+                    // borderRadius:30,
+                    padding: 6,
+                    paddingHorizontal:10,
+                    }}>
+                    <Text caption white >
+                      TK {card.price}
+                    </Text>
+                </View>
+            )}
+            {!card.price && (
+              <View 
+                  style={{
+                    // alignSelf:'flex-end',
+                    // margin:Metrics.base,
+                    marginTop:Metrics.doubleBase,
+                    // borderColor:'white',
+                    
+                    // borderWidth:1,
+                    // borderRadius:30,
+                    padding: 6,
+                    paddingHorizontal:10,
+                    }}>
+                    <Text caption white>
+                      TK 0
+                    </Text>
+                </View>
+            )}
+
+            <View style={{
+          alignSelf:'flex-end',
+          flexDirection:'row',
+          marginRight:Metrics.base}}>
+                                    
+            {card.isScholarship && (
+              <View 
+                  style={{
+                    // alignSelf:'flex-end',
+                    // margin:Metrics.base,
+                    marginTop:Metrics.doubleBase,
+                    borderColor:'white',
+                    borderWidth:1,
+                    borderRadius:30,
+                    padding: 6,
+                    paddingHorizontal:10,}}>
+                    <Text caption white>
+                      Scholarship
+                    </Text>
+                </View>
+            )}
+          
+            {card.jobGuarantee && (
+              <View 
+              style={{
+                // alignSelf:'flex-end',
+                marginLeft:Metrics.halfBase,
+                marginTop:Metrics.doubleBase,
+                borderColor:'white',
+                borderWidth:1,
+                borderRadius:30,
+                padding: 6,
+                paddingHorizontal:10,}}>
+                <Text caption white>
+                  Job Ready
+                </Text>
+              </View>
+            )}              
+        </View>
+    
+
+        </View>
+
+      </View>
+      <View 
+        style={{
+          flexDirection:'row',
+          alignItems:'center',
+          margin:Metrics.base}}
+        >
+          <Image source={Images.location}/>
+          <Text caption bold style={{marginLeft:Metrics.halfBase}}>
+          {card.address}
+          </Text>
+      </View>
       <View style={{margin:Metrics.base}}>
-        <Text>{card.title}</Text>
+        <Text title bold>
+          {card.title}
+        </Text>
+        <View style={{marginTop:6}}>
+          <Text midGrey>{card.description}</Text>
+        </View>
+      </View>
+      <View style={{margin:Metrics.base}}>
+          <View>
+            <Text title bold>Contact</Text>
+          </View>
+          {/* website and number */}
+          <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:Metrics.halfBase}}>
+            <View style={{flexDirection:'row'}}>
+              <Image source={Images.homeBlue} style={{marginRight:10}}/>
+              <Text>{card.website}</Text>
+            </View>
+            <View style={{flexDirection:'row'}}>
+              <Image source={Images.phoneBlue} style={{marginRight:10}}/>
+              <Text>{card.contact}</Text>
+            </View>
+
+          </View>
+          {/* email */}
+          <View style={{flexDirection:'row',marginTop:Metrics.halfBase}}>
+            <Image source={Images.messageBlue} style={{marginRight:10}}/>
+            <Text>{card.email}</Text>
+          </View>
+
       </View>
     </ScrollView>
     

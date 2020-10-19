@@ -16,6 +16,9 @@ const Images = {
   location:require("../../assets/icons/location_on.png"),
   calender:require("../../assets/icons/calendar.png"),
   teacher:require("../../assets/icons/teacher.png"),
+  homeBlue:require("../../assets/icons/homeBlue.png"),
+  phoneBlue:require("../../assets/icons/phoneBlue.png"),
+  messageBlue:require("../../assets/icons/messageBlue.png"),
 };
 
 export default Images;
