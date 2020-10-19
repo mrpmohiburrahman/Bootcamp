@@ -226,7 +226,7 @@ export default function Bookmark({ navigation }) {
   }
   return (
     <View style={commonStyles.container}>
-      <View style={{marginBottom:34}}>
+      <View style={{margin:Metrics.base,marginBottom:34}}>
         <View>
           <Text title bold>Saved Bootcamps</Text>
         </View>
