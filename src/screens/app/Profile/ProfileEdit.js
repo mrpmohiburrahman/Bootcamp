@@ -11,6 +11,9 @@ import * as yup from 'yup'
 export default function ProfileEdit({ route, navigation }) {
   const {name,bio,email}=route.params
   const [characterCount,setCharacterCount]=useState(null)
+  useEffect(()=>{
+    setCharacterCount(bio.length)
+  },[])
   return (
     <ScrollView style={{...commonStyles.container,padding:Metrics.base}}>
       <View style={{flexDirection:'row',justifyContent:'space-between'}}>
