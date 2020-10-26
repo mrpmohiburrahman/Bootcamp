@@ -5,14 +5,19 @@ import commonStyles from '../../../theme/common-styles'
 import Text from "../../../components/common/Text";
 import { Formik } from "formik";
 import * as yup from 'yup'
+import API from '../../../api'
 
 
 
 export default function ProfileEdit({ route, navigation }) {
   const {name,bio,email}=route.params
   const [characterCount,setCharacterCount]=useState(null)
+  const [aboutMe,setAboutMe]=useState(null)
+  const [userName,setUserName]=useState(null)
   useEffect(()=>{
     setCharacterCount(bio.length)
+    setAboutMe(bio)
+    setUserName(name)
   },[])
   return (
     <ScrollView style={{...commonStyles.container,padding:Metrics.base}}>
@@ -28,7 +33,19 @@ export default function ProfileEdit({ route, navigation }) {
           </View>
         </View>
         <View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={ async ()=>{
+            const updateUrl='auth/profile'
+            try{
+                // console.log("in side of try catch block")
+                let res=await API.put(updateUrl, { bio: aboutMe, name: userName })
+                // console.log("=====================")
+                // console.log(res.data)
+                // console.log("=====================")
+            }
+            catch(err){
+              console.log('err ',err.response)
+            }
+          }}>
             <View>
               <Text bold style={{color:Colors.primary}}>Save</Text>
             </View>
@@ -47,7 +64,7 @@ export default function ProfileEdit({ route, navigation }) {
             maxLength={300} 
             editable 
             defaultValue={bio}
-            onChangeText={(value) => setCharacterCount(value.length)}
+            onChangeText={(text) => {setCharacterCount(text.length);setAboutMe(text)}}
             style={{marginTop:13,borderBottomColor:'#333333',borderBottomWidth:1}}/>
           <Text small style={{alignSelf:'flex-end'}}>{characterCount}/300</Text>
         </View>
@@ -58,7 +75,7 @@ export default function ProfileEdit({ route, navigation }) {
           <Text caption>
             Name
           </Text>
-          <TextInput editable={true} defaultValue={name} style={{marginTop:13,borderBottomColor:'#333333',borderBottomWidth:1}}/>
+          <TextInput onChangeText={(text) => {setUserName(text)}} editable={true} defaultValue={name} style={{marginTop:13,borderBottomColor:'#333333',borderBottomWidth:1}}/>
         </View>
       </View>
       <View style={{marginTop:35}}>
