@@ -42,7 +42,7 @@ export default function Signup({ navigation }) {
           const registerURL = "auth/register";
           try {
             let res = await API.post(registerURL, values);
-            console.log("res ", res);
+            // console.log("res ", res);
             action.setSubmitting(false)
             signUp(res.data.token)
           } catch (err) {

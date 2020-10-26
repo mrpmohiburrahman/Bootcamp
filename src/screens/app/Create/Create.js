@@ -63,7 +63,7 @@ export default function Create({ navigation }) {
             action.setSubmitting(true)
             API.post('bootcamps',values)
             .then((res)=>{
-              console.log('res',res);
+              // console.log('res',res);
               action.setSubmitting(false)
               showMessage({
                 message:'Successfully created',

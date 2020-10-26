@@ -108,7 +108,7 @@ export default function Home({ navigation }) {
   const fetchBootcamps =()=>{
     API.get("bootcamps/explore")
     .then((res)=>{
-      console.log("res === ",res.data)
+      // console.log("res === ",res.data)
       setList(res.data.data)
       setLoading(false)
     })
@@ -270,13 +270,13 @@ export default function Home({ navigation }) {
     )
   }
   const onSwiped=(direction,index,item)=>{
-    console.log(direction,index,item)
+    // console.log(direction,index,item)
     
     API.post("bootcampLogs",{
       bootcamp:item._id,
       status:direction==='left'?'reject':'saved',
     }).then((res)=>{
-      console.log('res',res)
+      // console.log('res',res)
       if(direction==='right'){
         toggleModalPopupSuccess()
       }else if (direction==='left'){

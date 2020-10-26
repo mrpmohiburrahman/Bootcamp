@@ -190,7 +190,7 @@ export default function HomeDetails({ route, navigation }) {
         </View>
         <View>
         {card.careers.map((careers, index)=>{
-            console.log("carrers ", careers)
+            {/* console.log("carrers ", careers) */}
             return(
                 <View key={index}>
                     <Text style={{fontSize:14,lineHeight:21}}>

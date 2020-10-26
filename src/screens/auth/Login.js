@@ -37,7 +37,7 @@ export default function Login({ navigation }) {
           const loginUrl='auth/login'
           try{
               let res=await API.post(loginUrl, values)
-              console.log('res',res)
+              // console.log('res',res)
               action.setSubmitting(false)
               signIn(res.data.token)
           }

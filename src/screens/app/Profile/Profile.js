@@ -42,17 +42,17 @@ export default function Profile({ navigation }) {
   }
 
   const renderItem = ({item, index})=>{
-    console.log('item',item)
+    // console.log('item',item)
     return(
       <View style={{borderRadius:8, padding:18,backgroundColor:item.coverColor.code,width:Metrics.screenWidth*0.5,margin:5,}}>
         <Text numberOfLines={1} white title centered>
           {item.title}
         </Text>
         <TouchableOpacity onPress={()=>{
-          console.log('item id', item._id  )
+          // console.log('item id', item._id  )
           //setBootcampsLoading
           API.delete(`bootcamps/${item._id}`).then((res)=>{
-            console.log("res delete", res)
+            // console.log("res delete", res)
             if(res.status===200){
               const newList=bootcampsData.filter(
                 (value)=>value._id!==item._id

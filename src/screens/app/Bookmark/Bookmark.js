@@ -40,7 +40,7 @@ export default function Bookmark({ navigation }) {
 
   const getSavedBootcamps = async()=>{
     const response = await API.get("bootcamps/getSavedBootcamps")
-    console.log("get saved Boot camps",response.data.bootcamps)
+    // console.log("get saved Boot camps",response.data.bootcamps)
     setBootcampsData(response.data.bootcamps)
     setBootcampsLoading(false)
     
@@ -51,7 +51,7 @@ export default function Bookmark({ navigation }) {
   }
 
   const renderItem = ({item, index})=>{
-    console.log('item',item)
+    // console.log('item',item)
     return(
       <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('HomeDetails',{card:item})}>
           <View>
