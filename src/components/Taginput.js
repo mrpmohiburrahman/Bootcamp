@@ -17,6 +17,7 @@ export default function TagInput({formikProps}){
             initialTags={formikProps.values["careers"]}
             onChangeTags={(careers)=>{
                 console.log("careers",careers)
+                formikProps.setFieldValue("careers",careers)
             }}
             onTagPress={(index,tagLabel,event,deleted)=>console.log(index,tagLabel,event, deleted?"deleted":"not deleted")}
             inputStyle={{
