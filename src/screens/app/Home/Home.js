@@ -333,7 +333,14 @@ export default function Home({ navigation }) {
           BOOTCAMPS
         </Text>
       </View>
-      <Swiper
+      {(list === undefined || list.length == 0)?(
+        <View style={{margin:Metrics.base,justifyContent:'center',alignItems:'center',flex:1}}>
+          {/* <Text bold title>My Bootcamps</Text> */}
+          <Image source={Images.emptyBootcamps}/>
+          <Text centered bold>There are no bootcamps at this time.</Text>
+        </View>
+      ):
+      (<Swiper
         onSwipedLeft={(index,item)=> onSwiped("left", index, item)}
         onSwipedRight={(index, item)=> onSwiped("right", index, item)}
         cards={list}
@@ -344,7 +351,7 @@ export default function Home({ navigation }) {
         backgroundColor={colors.white}
         verticalSwipe={false}
         containerStyle={{position:'relative'}}
-      />
+      />) }
       
       <AppIntro visible={showOnboarding} toggleModal={toggleModal}/>
     </View>
