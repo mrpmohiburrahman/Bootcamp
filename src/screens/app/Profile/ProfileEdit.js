@@ -38,6 +38,7 @@ export default function ProfileEdit({ route, navigation }) {
             try{
                 // console.log("in side of try catch block")
                 let res=await API.put(updateUrl, { bio: aboutMe, name: userName })
+                navigation.navigate('Profile')
                 // console.log("=====================")
                 // console.log(res.data)
                 // console.log("=====================")
