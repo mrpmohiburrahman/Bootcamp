@@ -188,17 +188,28 @@ export default function HomeDetails({ route, navigation }) {
         <View>
           <Text title bold>Careers</Text>
         </View>
-        <View>
-        {card.careers.map((careers, index)=>{
-            {/* console.log("carrers ", careers) */}
-            return(
-                <View key={index}>
-                    <Text style={{fontSize:14,lineHeight:21}}>
-                        {`${careers}`}
-                    </Text>
-                </View>
-            )
-        })}
+        <View style={{flexDirection:'row',flexWrap:'wrap'}}>
+            {card.careers.map((careers, index)=>{
+                {/* console.log("carrers ", careers) */}
+                return(
+                    <View key={index}
+                      style={{
+                        marginTop:Metrics.halfBase,
+                        backgroundColor:'#6FCF97',
+                        borderColor:'white',
+                        borderWidth:1,
+                        borderRadius:30,
+                        padding: 6,
+                        paddingHorizontal:10,
+                        marginRight:5
+                        }}
+                      >
+                        <Text white style={{fontSize:14,lineHeight:21,padding:5}}>
+                            {`${careers}`}
+                        </Text>
+                    </View>
+                )
+            })}
         </View>
 
       </View>
