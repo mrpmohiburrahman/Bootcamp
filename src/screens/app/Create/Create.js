@@ -97,11 +97,13 @@ export default function Create({ navigation }) {
               formikKey='duration'
               formikProps={formikProps}
               placeholder='Duration (in months)'
+              keyboardType='numeric'
             />
           <Input
               formikKey='price'
               formikProps={formikProps}
               placeholder='Price'
+              keyboardType={'numeric'}
             />
           <Input
               formikKey='address'
@@ -112,6 +114,7 @@ export default function Create({ navigation }) {
               formikKey='email'
               formikProps={formikProps}
               placeholder='Contact Email'
+              autoCapitalize='none'
             />
           <Input
               formikKey='contact'
@@ -122,6 +125,7 @@ export default function Create({ navigation }) {
               formikKey='website'
               formikProps={formikProps}
               placeholder='Bootcamp website'
+              autoCapitalize='none'
             />
           <View style={{
             flexDirection:'row',
