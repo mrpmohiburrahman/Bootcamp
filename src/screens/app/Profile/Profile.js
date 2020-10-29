@@ -9,20 +9,32 @@ import Button from "../../../components/common/Button";
 import ProfileEdit from "../Profile/ProfileEdit"
 import FlashMessage from 'react-native-flash-message'
 import {showMessage,hideMessage} from 'react-native-flash-message'
+import { useIsFocused } from '@react-navigation/native';
 
 export default function Profile({ navigation }) {
+  const isFocused = useIsFocused();
   const [loading, setLoading]=useState(true)
   const [bootcampsLoading, setBootcampsLoading] = useState(true)
   const [userData, setUserData]=useState(null)
   const [bootcampsData,setBootcampsData]=useState([])
 
-  useEffect(()=>{
-    getUserData()
-  },[])
   
   useEffect(()=>{
-    getUserBootcamps()
+    const didFocusSubscription = navigation.addListener(
+      'focus',
+      payload => {
+        console.debug('focus', payload);
+        getUserData()
+        getUserBootcamps()
+      }
+    );
+    
+    return didFocusSubscription
   },[])
+  
+  // useEffect(()=>{
+  //   getUserBootcamps()
+  // },[])
 
   const getUserData = async ()=>{
     const response=await API.get("auth/profile")
