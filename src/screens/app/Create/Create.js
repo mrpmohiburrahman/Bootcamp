@@ -69,6 +69,7 @@ export default function Create({ navigation }) {
                 message:'Successfully created',
                 type: 'success',
               })
+              action.resetForm();
               navigation.navigate('Profile')
               })
             .catch((err)=>{console.log(err);action.setSubmitting(false)})
