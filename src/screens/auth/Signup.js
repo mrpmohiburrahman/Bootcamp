@@ -99,14 +99,14 @@ export default function Signup({ navigation }) {
         }}
       </Formik>
 
-      <View style={styles.footer}>
+      {/* <View style={styles.footer}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Text semiBold centered>
             By continuing, you accept the <Text primaryColor>Terms of Use</Text>{" "}
             and <Text primaryColor>Privacy Policy.</Text>
           </Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 }
