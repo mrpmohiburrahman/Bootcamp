@@ -30,6 +30,30 @@ This app is made with react native in front end and express.js and mongodb in ba
 **Data Base**
 - MongoDB
 
+## How To Use
+
+To run this application, you'll need the following things installed in your computer:
+* [Git](https://git-scm.com)
+* [Node.js](https://nodejs.org/en/download/)
+
+From your command line:
+
+```bash
+#install expo-cli
+$ npm install -g expo-cli
+
+# Clone this repository
+$ git clone https://github.com/mrpmohiburrahman/BootcampApp.git
+
+# Go into the repository
+$ cd BootcampApp
+
+# Install dependencies
+$ npm install
+
+# Run the app
+$ npm start
+```
 
 ## Screen Shots
 <p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/signup.gif" alt="SignUp screen" width="200"></p>
