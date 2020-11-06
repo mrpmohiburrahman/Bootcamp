@@ -1,5 +1,11 @@
 # BootCamp 
 ### An app for organizing and participating in boot camps
+<p align="center">
+  <a href="#about">About</a> •
+  <a href="#screenshots">Screen Shots</a> •
+  <a href="#howtouse">How to use</a> •
+</p>
+
 <!--
 <p align="center">
     <a href="https://github.com/mrpmohiburrahman/BootcampApp/commits/master">
