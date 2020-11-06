@@ -6,6 +6,9 @@
   <a href="#howtouse">How to use</a> •
 </p>
 
+## About
+This app is made with react native in front end and express.js and mongodb in backend.
+
 <!--
 <p align="center">
     <a href="https://github.com/mrpmohiburrahman/BootcampApp/commits/master">
