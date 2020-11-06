@@ -13,9 +13,11 @@ This app is made with react native in front end and express.js and mongodb in ba
 <p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/signup.gif" alt="SignUp screen" width="200"></p>
 <p align="center">sing up page</p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/signin.gif" alt="SignUp screen" width="200"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/signin.gif" alt="SignIn screen" width="200"></p>
 <p align="center">sing in page</p>
 
+<p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/exporing%20bootcamps%20list%20and%20book%20mark%20tab.gif" alt="exploring bootcamps list and bookmark tab" width="200"></p>
+<p align="center">exploring bootcamps list and bookmark tab</p>
 
 
 <!--
