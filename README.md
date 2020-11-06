@@ -9,6 +9,28 @@
 ## About
 This app is made with react native in front end and express.js and mongodb in backend.
 
+## Used technology
+**Front End**
+- React Native
+- JavaScript
+- Axios
+- Formik
+- yup
+
+
+**Back End**
+- Express.js
+- mongoose
+- jsonwebtoken
+- morgan
+- slugify
+- dotenv
+- bcryptjs
+
+**Data Base**
+- MongoDB
+
+
 ## Screen Shots
 <p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/signup.gif" alt="SignUp screen" width="200"></p>
 <p align="center">sing up page</p>
