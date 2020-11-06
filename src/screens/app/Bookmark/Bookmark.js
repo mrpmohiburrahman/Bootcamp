@@ -23,7 +23,19 @@ export default function Bookmark({ navigation }) {
   const [bootcampsLoading, setBootcampsLoading] = useState(true)
   const [userData, setUserData]=useState(null)
   const [bootcampsData,setBootcampsData]=useState([])
-
+  useEffect(()=>{
+    const didFocusSubscription = navigation.addListener(
+      'focus',
+      payload => {
+        console.debug('focus', payload);
+        getUserData()
+        getSavedBootcamps()
+      }
+    );
+    
+    return didFocusSubscription
+  },[])
+  
   useEffect(()=>{
     getUserData()
   },[])
