@@ -9,6 +9,11 @@
 ## About
 This app is made with react native in front end and express.js and mongodb in backend.
 
+## Screen Shots
+<p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/signup.gif" alt="SignUp screen" width="200"></p>
+<p align="center">sing up page</p>
+
+
 <!--
 <p align="center">
     <a href="https://github.com/mrpmohiburrahman/BootcampApp/commits/master">
