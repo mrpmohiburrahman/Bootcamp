@@ -56,19 +56,27 @@ $ npm start
 ```
 
 ## Screen Shots
-<p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/signup.gif" alt="SignUp screen" width="200"></p>
-<p align="center">sing up page</p>
+<p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/signup.gif" alt="SignUp screen" width="300"></p>
+<p align="center">Sign up page</p>  
+ <br />
+ <br />
+ <br />
+<p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/signin.gif" alt="SignIn screen" width="300"></p>
+<p align="center">Sign in page</p>
+ <br />
+ <br />
+ <br />
+<p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/exporing%20bootcamps%20list%20and%20book%20mark%20tab.gif" alt="exploring bootcamps list and bookmark tab" width="300"></p>
+<p align="center">Bootcamp List and Bookmark Tab</p>
+ <br />
+ <br />
+ <br />
 
-<p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/signin.gif" alt="SignIn screen" width="200"></p>
-<p align="center">sing in page</p>
-
-<p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/exporing%20bootcamps%20list%20and%20book%20mark%20tab.gif" alt="exploring bootcamps list and bookmark tab" width="200"></p>
-<p align="center">exploring bootcamps list and bookmark tab</p>
-
-
-<p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/edit%20profile%20and%20create%20bootcamp_edit_200fps.gif" alt="exploring bootcamps list and bookmark tab" width="200"></p>
-<p align="center">edit profile and create bootcamp</p>
-
+<p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/edit%20profile%20and%20create%20bootcamp_edit_200fps.gif" alt="exploring bootcamps list and bookmark tab" width="300"></p>
+<p align="center">Profile page and Create Bootcamp page</p>
+ <br />
+ <br />
+ <br />
 
 <!--
 <p align="center">
