@@ -2,8 +2,9 @@
 ### An app for organizing and participating in boot camps
 <p align="center">
   <a href="#about">About</a> •
-  <a href="#screenshots">Screen Shots</a> •
-  <a href="#howtouse">How to use</a> •
+  <a href="#used-technology">Used technology</a> •
+  <a href="#how-to-use">How to use</a> •
+  <a href="#screen-shots">Screen Shots</a> •
 </p>
 
 ## About
