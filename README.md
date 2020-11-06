@@ -20,6 +20,10 @@ This app is made with react native in front end and express.js and mongodb in ba
 <p align="center">exploring bootcamps list and bookmark tab</p>
 
 
+<p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/edit%20profile%20and%20create%20bootcamp_edit_200fps.gif" alt="exploring bootcamps list and bookmark tab" width="200"></p>
+<p align="center">edit profile and create bootcamp</p>
+
+
 <!--
 <p align="center">
     <a href="https://github.com/mrpmohiburrahman/BootcampApp/commits/master">
