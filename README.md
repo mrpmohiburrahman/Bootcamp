@@ -11,25 +11,52 @@
 This app is made with react native in front end and express.js and mongodb in backend.
 
 ## Used technology
-**Front End**
-- React Native
-- JavaScript
-- Axios
-- Formik
-- yup
-
-
-**Back End**
-- Express.js
-- mongoose
-- jsonwebtoken
-- morgan
-- slugify
-- dotenv
-- bcryptjs
-
-**Data Base**
-- MongoDB
+<table style="width:600px">
+  <thead align="center">
+   <tr border: none;>
+     <th>Front End</th>
+     <th>Back End</th>
+     <th>Data Base</th>
+   </tr>
+  </thead>
+  <tr>
+    <td>React Native</td>
+    <td>Express.js</td>
+    <td>MongoDB</td>
+  </tr>
+  <tr>
+    <td>JavaScript</td>
+    <td>mongoose</td>
+    <td>&nbsp</td>
+  </tr>
+  <tr>
+    <td>Axios</td>
+    <td>jsonwebtoken</td>
+    <td>&nbsp</td>
+  </tr>
+  <tr>
+    <td>Formik</td>
+    <td>morgan</td>
+    <td>&nbsp</td>
+  </tr>
+  <tr>
+    <td>yup</td>
+    <td>slugify</td>
+    <td>&nbsp</td>
+  </tr>
+  <tr>
+    <td>&nbsp</td>
+    <td>dotenv</td>
+    <td>&nbsp</td>
+  </tr>
+  <tr>
+    <td>&nbsp</td>
+    <td>bcryptjs</td>
+    <td>&nbsp</td>
+  </tr>
+</table> 
+<br/>
+<br/>
 
 ## How To Use
 
