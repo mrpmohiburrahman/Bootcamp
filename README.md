@@ -36,7 +36,9 @@ This app is made with react native in front end and express.js and mongodb in ba
 To run this application, you'll need the following things installed in your computer:
 * [Git](https://git-scm.com)
 * [Node.js](https://nodejs.org/en/download/)
+* yarn
 
+You need to run both BootcampApp and BootcampApi to see the app working in simualtor.
 From your command line:
 
 ```bash
@@ -53,8 +55,29 @@ $ cd BootcampApp
 $ npm install
 
 # Run the app
-$ npm start
+$ yarn start
 ```
+
+You also need to run the backend code.
+From your command line:
+
+```bash
+#install expo-cli
+$ npm install -g expo-cli
+
+# Clone this repository
+$ git clone https://github.com/mrpmohiburrahman/BootcampApi.git
+
+# Go into the repository
+$ cd BootcampApi
+
+# Install dependencies
+$ npm install
+
+# Run the app
+$ yarn run dev
+```
+BootcampApi needs to be configured to work with mongodb clound database. Details will be added later.
 
 ## Screen Shots
 <p align="center"><img src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/signup.gif" alt="SignUp screen" width="300"></p>
