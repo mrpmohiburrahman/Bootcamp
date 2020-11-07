@@ -6,10 +6,10 @@
 ### An app for organizing and participating in boot camps  
 <br/>
 
-[About](#about)  
-[Used technology](#used-technology)  
-[How to use](#how-to-use)  
-[Screen Shots](#screen-shots)
+* [About](#about)  
+* [Used technology](#used-technology)  
+* [How to use](#how-to-use)  
+* [Screen Shots](#screen-shots)
 
 <br/>
 <br/>
