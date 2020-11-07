@@ -1,11 +1,18 @@
+<img align="right" alt="GIF" src="https://raw.githubusercontent.com/mrpmohiburrahman/BootcampApp/master/assets/gifs/bootcamp%20app%20demo_width_256.gif" width="200"/>  
+
 # BootCamp 
-### An app for organizing and participating in boot camps
-<p align="center">
-  <a href="#about">About</a> •
-  <a href="#used-technology">Used technology</a> •
-  <a href="#how-to-use">How to use</a> •
-  <a href="#screen-shots">Screen Shots</a> •
-</p>
+
+
+### An app for organizing and participating in boot camps  
+<br/>
+
+[About](#about)  
+[Used technology](#used-technology)  
+[How to use](#how-to-use)  
+[Screen Shots](#screen-shots)
+
+<br/>
+<br/>
 
 ## About
 This app is made with react native in front end and express.js and mongodb in backend.
