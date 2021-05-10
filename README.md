@@ -72,7 +72,7 @@ To run this application, you'll need the following things installed in your comp
 * [Node.js](https://nodejs.org/en/download/)
 * yarn
 
-You need to run both BootcampApp and BootcampApi to see the app working in simualtor.
+You need to run both [BootcampApp](https://github.com/mrpmohiburrahman/BootcampApp)(this repo) and [BootcampApi](https://github.com/mrpmohiburrahman/BootcampApi) to see the app working in simualtor.
 From your command line:
 
 ```bash
