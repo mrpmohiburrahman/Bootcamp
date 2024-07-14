@@ -1,9 +1,13 @@
 import { View } from "react-native";
+import { PersistGate } from "redux-persist/es/integration/react";
 
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback, useEffect, useState } from "react";
 import RootNavigation from "./src/navigation/RootNavigation";
+import { Provider } from "react-redux";
+import { persistor, store } from "./src/store/index";
+import Loading from "./src/components/common/Loading";
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
 
@@ -36,8 +40,12 @@ export default function App() {
     return null;
   }
   return (
-    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-      <RootNavigation />
-    </View>
+    <Provider store={store}>
+      <PersistGate loading={<Loading />} persistor={persistor}>
+        <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+          <RootNavigation />
+        </View>
+      </PersistGate>
+    </Provider>
   );
 }

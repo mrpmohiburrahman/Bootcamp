@@ -7,9 +7,10 @@ import {
   TouchableOpacity,
   Modal,
   TouchableHighlight,
+  Button,
 } from "react-native";
 import AppIntro from "../../../components/AppIntro";
-import Button from "../../../components/common/Button";
+// import Button from "../../../components/common/Button";
 import Text from "../../../components/common/Text";
 import Loading from "../../../components/common/Loading";
 // import { AuthContext } from "../../../context/AuthContext";
@@ -19,6 +20,8 @@ import { Images, Metrics } from "../../../theme";
 import Swiper from "react-native-deck-swiper";
 import colors from "../../../theme/colors";
 import HomeDetails from "./HomeDetails";
+import { useDispatch, useSelector } from "react-redux";
+import { increment, selectCounterh } from "../../../store/counterSlice";
 
 const styles = StyleSheet.create({
   card: {
@@ -67,8 +70,17 @@ const styles = StyleSheet.create({
 });
 
 export default function Home({ navigation }) {
+  const dispatch = useDispatch();
+  const counter = useSelector(selectCounterh);
+  console.log(`🚀 ~ Home ~ counter:`, counter);
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Button
+        title={"increment"}
+        onPress={() => {
+          dispatch(increment());
+        }}
+      />
       <Text>home</Text>
     </View>
   );
