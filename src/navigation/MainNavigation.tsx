@@ -10,8 +10,8 @@ import AuthNav from "./AuthNavigation";
 import AppNav from "./AppNavigation";
 import { Platform } from "react-native";
 import FlashMessage from "react-native-flash-message";
-// import { AuthContext } from "../context/AuthContext";
-// import AsyncStorage from "@react-native-community/async-storage";
+import { AuthContext } from "../context/AuthContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Stack = createStackNavigator();
 
@@ -20,18 +20,17 @@ export default function MainNavigation() {
   // const isLoading = false;
   // const {a} = useContext(AuthContext)
 
-  // const {state, authContext} = useContext(AuthContext)
-  // const { isLoading, userToken } = state;
-  const userToken = "sts";
-  const isLoading = false;
+  const { state, authContext } = useContext(AuthContext);
+  const { isLoading, userToken } = state;
+
   useEffect(() => {
     bootstrap();
   }, []);
   const bootstrap = async () => {
     try {
       let token;
-      // token = await AsyncStorage.getItem("userToken");
-      // authContext.restoreToken(token);
+      token = await AsyncStorage.getItem("userToken");
+      authContext.restoreToken(token);
     } catch (error) {
       console.log(error);
     }
@@ -40,12 +39,10 @@ export default function MainNavigation() {
     <Root>
       <NavigationContainer>
         <SafeAreaView style={{ flex: 1 }}>
-          {/* <StatusBar
+          <StatusBar
             backgroundColor={Colors.primary}
-            barStyle={
-              Platform.OS === "android" ? "light-content" : "dark-content"
-            }
-          /> */}
+            style={Platform.OS === "android" ? "light" : "dark"}
+          />
 
           <Stack.Navigator>
             <Stack.Screen

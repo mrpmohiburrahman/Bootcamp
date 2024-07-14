@@ -1,4 +1,4 @@
-// import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useEffect } from "react";
 import { View, Image, Modal } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
@@ -34,58 +34,57 @@ const slides = [
 ];
 
 export default function AppIntro({ visible, toggleModal }) {
-  return <Text>AppIntro</Text>;
-  //   useEffect(() => {
-  //     setFlag();
-  //   }, []);
-  //   const setFlag = async () => {
-  //     await AsyncStorage.setItem("visited", "true");
-  //   };
-  //   const renderSlides = ({ item, index }) => {
-  //     return (
-  //       <View>
-  //         <Image
-  //           style={{ width: Metrics.screenWidth, height: scale(270) }}
-  //           resizeMode="contain"
-  //           source={item.image}
-  //         />
-  //         <View style={{ marginTop: Metrics.doubleBase }}>
-  //           <Text primaryColor bold mega centered>
-  //             {item.title}
-  //           </Text>
-  //           <Text
-  //             primaryColor
-  //             bold
-  //             mega
-  //             centered
-  //             style={{ marginTop: Metrics.halfBase }}>
-  //             {item.subtitle}
-  //           </Text>
-  //           <Text color="#666" centered style={{ marginTop: Metrics.base }}>
-  //             {item.description}
-  //           </Text>
-  //         </View>
-  //         {index === slides.length - 1 && (
-  //           <Button
-  //             style={{
-  //               width: 200,
-  //               alignSelf: "center",
-  //               marginTop: Metrics.doubleBase,
-  //             }}
-  //             title="Explore now"
-  //             onPress={toggleModal}
-  //           />
-  //         )}
-  //       </View>
-  //     );
-  //   };
-  //   return (
-  //     <Modal visible={visible}>
-  //       <AppIntroSlider
-  //         activeDotStyle={{ backgroundColor: Colors.primary }}
-  //         data={slides}
-  //         renderItem={renderSlides}
-  //       />
-  //     </Modal>
-  //   );
+  useEffect(() => {
+    setFlag();
+  }, []);
+  const setFlag = async () => {
+    await AsyncStorage.setItem("visited", "true");
+  };
+  const renderSlides = ({ item, index }) => {
+    return (
+      <View>
+        <Image
+          style={{ width: Metrics.screenWidth, height: scale(270) }}
+          resizeMode="contain"
+          source={item.image}
+        />
+        <View style={{ marginTop: Metrics.doubleBase }}>
+          <Text primaryColor bold mega centered>
+            {item.title}
+          </Text>
+          <Text
+            primaryColor
+            bold
+            mega
+            centered
+            style={{ marginTop: Metrics.halfBase }}>
+            {item.subtitle}
+          </Text>
+          <Text color="#666" centered style={{ marginTop: Metrics.base }}>
+            {item.description}
+          </Text>
+        </View>
+        {index === slides.length - 1 && (
+          <Button
+            style={{
+              width: 200,
+              alignSelf: "center",
+              marginTop: Metrics.doubleBase,
+            }}
+            title="Explore now"
+            onPress={toggleModal}
+          />
+        )}
+      </View>
+    );
+  };
+  return (
+    <Modal visible={visible}>
+      <AppIntroSlider
+        activeDotStyle={{ backgroundColor: Colors.primary }}
+        data={slides}
+        renderItem={renderSlides}
+      />
+    </Modal>
+  );
 }
